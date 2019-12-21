@@ -21,6 +21,7 @@ class block:
             print('Calculating hash... ' + str(self.nonce))
             objectHash = str( self.getHash() )
             print(objectHash)
+            print('')
             self.nonce = self.nonce + 1
 
         return objectHash
