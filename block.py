@@ -6,16 +6,21 @@ class block:
         self.data = data
         self.timeCreated = datetime.now()
         self.previous = previous
-        self.hash = self.getHash()
         self.nonce = 0
+        self.hash = self.mine()
 
     def getHash(self):
+        objectHash = str(self.index) + str(self.data) + str(self.timeCreated) + str(self.previous) + str(self.nonce)
+        return hash(objectHash)
+
+    def mine(self):
+
         #Proof of work
         objectHash = ''
-        while(objectHash[0:1] is not '0000'):
-            print('Calculating hash...')
+        while( '33' not in objectHash[0:2]):
+            print('Calculating hash... ' + str(self.nonce))
+            objectHash = str( self.getHash() )
             print(objectHash)
-            objectHash = str(self.index) + str(self.data) + str(self.timeCreated)+ str(self.previous)
-            hash(objectHash)
             self.nonce = self.nonce + 1
+
         return objectHash
