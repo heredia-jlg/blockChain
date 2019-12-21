@@ -17,8 +17,9 @@ class blockChain:
         return self.chain[-1].hash
 
     def printChain(self):
+        print('This is the cahin : ')
         for block in self.chain:
-            print('Data = ' + str(block.data) )
-            print('Hash = ' + str(block.hash) )
-            print('Previous hash = ' + str(block.previous) )
+            print(' -Data = ' + str(block.data) )
+            print(' -Hash = ' + str(block.hash) )
+            print(' -Previous hash = ' + str(block.previous) )
             print('')
